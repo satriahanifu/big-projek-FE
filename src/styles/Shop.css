@@ -1,0 +1,246 @@
+.container {
+  width: 1152px;
+  height: 700px;
+  margin: 0px auto;
+  background-color: #ffffff;
+}
+/* go back */
+.goBack {
+  position: absolute;
+  width: 87px;
+  height: 15px;
+  left: 993px;
+  top: 88px;
+  text-decoration: none;
+}
+
+.goBack p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  color: #000000;
+  padding-right: 1rem;
+  border-right: 1px solid #e7f0f2;
+}
+
+.container .cartGroup {
+  position: absolute;
+  width: 257.65px;
+  height: 63px;
+  left: 930.77px;
+  top: 14.81px;
+  align-items: center;
+
+  /* background: #000000; */
+}
+
+.container .cartGroup a {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  left: 92px;
+  top: 35px;
+}
+
+/* .tumbnail */
+.tumbnail {
+  position: absolute;
+  width: 523px;
+  height: 567px;
+  left: 77px;
+  top: 39px;
+}
+
+/* info */
+.info {
+  position: absolute;
+  width: 415px;
+  height: 91px;
+  left: 578px;
+  top: 107px;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 34px;
+
+  align-items: center;
+
+  color: #363a41;
+}
+.info .title .subTitle {
+  /* fontmasih dibepajari */
+  font-weight: bold;
+}
+.info {
+  position: absolute;
+
+  right: 159px;
+  top: 107px;
+}
+
+.info .label p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+
+  color: #363a41;
+}
+
+.info .label strike {
+  font-family: ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18.79px;
+  color: #aeaeae;
+}
+.info .info2 {
+  /* position: absolute; */
+  width: 346px;
+  height: 131px;
+  /* left: 582px;
+  top: 308px; */
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: rgba(0, 0, 0, 0.3);
+  margin-top: 1rem;
+}
+.sizing {
+  /* display: flex; */
+  position: absolute;
+  width: 147px;
+  height: 37px;
+  left: 588px;
+  top: 458px;
+}
+.sizing label {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+}
+.sizing select {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  border: none;
+  background-color: none;
+  font-weight: bold;
+  background: transparent;
+}
+p.material {
+  position: absolute;
+  width: 88px;
+  height: 125px;
+  left: 977px;
+  top: 440px;
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: flex-end;
+  text-align: right;
+
+  color: rgba(0, 0, 0, 0.55);
+}
+.addToCart {
+  position: absolute;
+  width: 147px;
+  height: 48px;
+  left: 582px;
+  top: 561px;
+
+  background: #000000;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}
+.addToCart p {
+  width: 147px;
+  height: 48px;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0px auto;
+  color: #ffffff;
+}
+.left {
+  position: absolute;
+  width: 40px;
+  height: 48px;
+  left: 77px;
+  top: 561px;
+
+  background: #000000;
+}
+.left p {
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  right: 17px;
+  width: 7px;
+  height: 13px;
+  color: #ffffff;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+}
+.right {
+  position: absolute;
+  width: 40px;
+  height: 48px;
+  left: 125px;
+  top: 561px;
+  align-items: center;
+
+  background: #000000;
+}
+.right p {
+  position: absolute;
+  top: 18px;
+  left: 17px;
+  width: 7px;
+  height: 13px;
+  align-items: center;
+
+  color: #ffffff;
+}
+.footer {
+  width: 1152px;
+  height: 39px;
+  border-top: 1px solid #c4c4c4;
+  background: #ffffff;
+  margin: 0px auto;
+}
+.footer img {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin: 0.5rem auto;
+}
+.hover:hover {
+  transform: scale(1.2);
+}

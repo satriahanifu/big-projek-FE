@@ -1,0 +1,123 @@
+.container {
+  width: 1152px;
+  height: 700px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  margin: 39px 0px 69px;
+}
+
+.headerLeft h3 {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+}
+
+.headerRight .search input,
+.headerRight .search button {
+  border: 0px;
+  background-color: transparent;
+}
+
+.headerRight {
+  display: flex;
+}
+.cartButton a {
+  margin-left: 125px;
+}
+
+.search {
+  border-bottom: 1px solid #c4c4c4;
+  padding-bottom: 13px;
+}
+.leftSide ul {
+  border-left: 1px solid #e7f0f2;
+}
+.leftSide ul li {
+  margin-left: 15px;
+}
+.rightSide ul {
+  border-right: 1px solid #e7f0f2;
+}
+.rightSide ul li {
+  margin-right: 15px;
+  text-align: right;
+}
+.leftSide {
+  width: 143px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.leftSide ul li,
+.rightSide ul li {
+  font-family: Ubuntu;
+  width: 127px;
+  height: 15px;
+  font-weight: 500;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 21px;
+}
+
+.leftSide ul li a,
+.rightSide ul li a {
+  text-decoration: none;
+  margin-bottom: 21px;
+}
+
+.pagination,
+.pagination ul {
+  display: flex;
+  justify-content: center;
+
+  border-top: 1px solid #e7f0f2;
+}
+
+.pagination ul a {
+  margin-right: 10px;
+  text-decoration: none;
+  font-family: Roboto;
+  font-size: 18px;
+}
+
+.pagination {
+  margin: 51px 0px 45px;
+}
+
+.center {
+  display: flex;
+  margin: 0px auto;
+}
+.productCard {
+  height: 116px;
+  background: rgba(231, 240, 242, 0.3);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 0px 15px 15px 15px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.productSection h4,
+.productSection p {
+  font-family: roboto;
+  font-size: 14px;
+}
+
+.productSection h4 {
+  font-weight: bold;
+}
+
+.buttonCart {
+  border: 0px;
+  background-color: transparent;
+}
