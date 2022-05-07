@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
 import "./Login";
-import "./Fonts";
+import "./Fonts.css";
 
 function Login() {
   // const { history } = useRouter()
