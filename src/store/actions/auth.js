@@ -1,10 +1,11 @@
 import axios from "axios";
+import { postRequest, getRequest, deleteRequest } from "../../utils/api";
 import { API_URL, CREATE_USER, GET_USER, LOGIN_USER } from "../constants";
 
+///belum beres
 export const loginUser = (data) => {
   return (dispatch) => {
-    axios
-      .post(`$API_URL/auth/login`, data)
+    postRequest("/auth/login", data)
       .then((res) => {
         dispatch({
           type: LOGIN_USER,
@@ -26,27 +27,20 @@ export const logoutUser = () => {
 
 export const createUser = (data) => {
   return (dispatch) => {
-    axios
-      //cari cara utk mengupload fitur login dari FE
-      .post(`${API_URL}/user`)
-      .then((res) => {
-        dispatch({
-          type: CREATE_USER,
-          payload: {
-            username: req.data.username,
-            password: req.data.password,
-            fullname: req.data.fullname,
-            email: req.data.email,
-          },
-        });
-      });
+    //cari cara utk mengupload fitur login dari FE
+    postRequest("/auth/register", data).then((res) => {
+      if (res.id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   };
 };
 
 export const getUser = (data) => {
   return (dispatch) => {
-    axios
-      .GET(`${API_URL}/user`, data)
+    getRequest("/auth/getUser", data)
       .then((res) => {
         dispatch({
           type: GET_USER,
@@ -60,11 +54,24 @@ export const getUser = (data) => {
   };
 };
 
-export const getUserID = (data) => {
+export const getUserID = (id) => {
   return (dispatch) => {
-    const id = res.data.data;
-    axios
-      .GET(`${API_URL}/user/` + id, data)
+    getRequest(`/auth/getUserID/${id}`)
+      .then((res) => {
+        dispatch({
+          type: GET_USER,
+          payload: res.data.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const deleteUser = (data) => {
+  return (dispatch) => {
+    deleteRequest("/auth/", data)
       .then((res) => {
         dispatch({
           type: GET_USER,

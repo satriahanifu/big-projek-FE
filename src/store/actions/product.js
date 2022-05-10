@@ -1,4 +1,5 @@
 import { ADD_TO_CART, FIND_PRODUCT, GET_PRODUCT } from "../constants";
+import axios from "axios";
 
 export const getProducts = () => {
   return {
