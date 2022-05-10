@@ -1,6 +1,6 @@
 import axios from "axios";
-import { postRequest, getRequest, deleteRequest } from "../../utils/api";
-import { API_URL, CREATE_USER, GET_USER, LOGIN_USER } from "../constants";
+import { postRequest } from "../../utils/api";
+import { LOGIN_USER } from "../constants";
 
 ///belum beres
 export const loginUser = (data) => {
@@ -38,49 +38,49 @@ export const createUser = (data) => {
   };
 };
 
-export const getUser = (data) => {
-  return (dispatch) => {
-    getRequest("/auth/getUser", data)
-      .then((res) => {
-        dispatch({
-          type: GET_USER,
-          payload: res.data.data,
-        });
-        window.localStorage.setItem("userData", JSON.stringify(res.data.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
+// export const getUser = (data) => {
+//   return (dispatch) => {
+//     getRequest("/auth/getUser", data)
+//       .then((res) => {
+//         dispatch({
+//           type: GET_USER,
+//           payload: res.data.data,
+//         });
+//         window.localStorage.setItem("userData", JSON.stringify(res.data.data));
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   };
+// };
 
-export const getUserID = (id) => {
-  return (dispatch) => {
-    getRequest(`/auth/getUserID/${id}`)
-      .then((res) => {
-        dispatch({
-          type: GET_USER,
-          payload: res.data.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
+// export const getUserID = (id) => {
+//   return (dispatch) => {
+//     getRequest(`/auth/getUserID/${id}`)
+//       .then((res) => {
+//         dispatch({
+//           type: GET_USER,
+//           payload: res.data.data,
+//         });
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   };
+// };
 
-export const deleteUser = (data) => {
-  return (dispatch) => {
-    deleteRequest("/auth/", data)
-      .then((res) => {
-        dispatch({
-          type: GET_USER,
-          payload: res.data.data,
-        });
-        window.localStorage.setItem("userData", JSON.stringify(res.data.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
+// export const deleteUser = (data) => {
+//   return (dispatch) => {
+//     deleteRequest("/auth/", data)
+//       .then((res) => {
+//         dispatch({
+//           type: GET_USER,
+//           payload: res.data.data,
+//         });
+//         window.localStorage.setItem("userData", JSON.stringify(res.data.data));
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   };
+// };

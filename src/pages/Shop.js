@@ -5,9 +5,10 @@ import "../styles/Reset.css";
 import Footer from "../components/Footer";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, findProduct, getProducts } from "../store/actions/product";
+import { addToCart, removeCart } from "../store/actions/cart";
 import { useParams } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { getProductID } from "../store/actions/product";
 
 export default function Shop() {
   const params = useParams();
@@ -20,7 +21,7 @@ export default function Shop() {
   };
 
   useEffect(() => {
-    dispacth(findProduct(params.id));
+    dispacth(getProductID(params.id));
   }, [params.id]);
 
   const foward = () => {

@@ -6,7 +6,8 @@ import "../components/Footer";
 import Footer from "../components/Footer";
 import "../styles/Reset.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, addToCart, findProduct } from "../store/actions/product";
+import { getProduct } from "../store/actions/product";
+import { addToCart } from "../store/actions/cart";
 import { useParams } from "react-router-dom";
 
 export default function Catalogue() {
@@ -36,7 +37,7 @@ export default function Catalogue() {
   };
 
   useEffect(() => {
-    dispacth(getProducts());
+    dispacth(getProduct());
   }, []);
 
   useEffect(() => {
