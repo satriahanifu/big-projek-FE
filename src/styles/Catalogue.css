@@ -105,6 +105,13 @@
 .row {
   display: flex;
   justify-content: space-around;
+  /* overflow: scroll; */
+}
+
+.col-md-6 .row {
+  overflow-y: scroll;
+  width: 599px;
+  height: 408px;
 }
 
 .productSection h4,

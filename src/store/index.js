@@ -4,10 +4,12 @@ import productReducer from "./reducers/productReducer";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import authReducer from "./reducers/authReducer";
+import categoryReducer from "./reducers/categoryReducers";
 
 const rootReducer = combineReducers({
   authReducer,
   productReducer,
+  categoryReducer,
 });
 
 const persistConfig = {

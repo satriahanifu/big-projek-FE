@@ -7,14 +7,17 @@ import Footer from "../components/Footer";
 import "../styles/Reset.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../store/actions/product";
+import { getCategory } from "../store/actions/category";
 import { addToCart } from "../store/actions/cart";
 import { useParams } from "react-router-dom";
 
 export default function Catalogue() {
   const dispacth = useDispatch();
   const { products } = useSelector((state) => state.productReducer);
+  const { category } = useSelector((state) => state.categoryReducer);
   const history = useHistory();
   const [productList, setProductList] = useState([]);
+  const [categoryList, setCategoryList] = useState([]);
   const [search, setSearch] = useState("");
 
   const onSearch = (e) => {
@@ -37,12 +40,18 @@ export default function Catalogue() {
   };
 
   useEffect(() => {
-    dispacth(getProduct());
+    dispacth(getProduct(), getCategory());
   }, []);
 
   useEffect(() => {
     setProductList(products);
+    console.log(products);
   }, [products]);
+
+  useEffect(() => {
+    setCategoryList(category);
+    console.log("category list" + category);
+  }, [category]);
 
   const params = useParams();
 
@@ -70,7 +79,19 @@ export default function Catalogue() {
       </div>
       <div className="row">
         <div className="col-md-3 leftSide">
-          <ul>
+          {
+            <div className="ul">
+              {categoryList &&
+                categoryList.map((val, key) => {
+                  return (
+                    <div key={key} className="li" onClick={() => history.push(`/categories/${val.id}`)}>
+                      {val.name}
+                    </div>
+                  );
+                })}
+            </div>
+          }
+          {/* <ul>
             <li>FATURED</li>
             <li>
               <NavLink to="">CATEGORY 1</NavLink>
@@ -87,7 +108,7 @@ export default function Catalogue() {
             <li>
               <NavLink to="">CATEGORY 5</NavLink>
             </li>
-          </ul>
+          </ul> */}
         </div>
         <div className="col-md-6">
           <div className="row">
@@ -97,7 +118,7 @@ export default function Catalogue() {
                   <div key={key} className="col-md-4 mb-3" onClick={() => history.push(`/shop/${val.id}`)}>
                     <div className="productCard">
                       <div className="productSection" key={key}>
-                        <h4>{val.productName}</h4>
+                        <h4>{val.name}</h4>
                         <p>price{val.price}</p>
                       </div>
                     </div>

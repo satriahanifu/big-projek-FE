@@ -13,6 +13,12 @@ export const CREATE_USER = "[USER] create";
 export const GET_USER = "[USER] findall";
 export const GET_USERID = "[USER] findbyid";
 
+export const GET_CATEGORY = "[GET] Category";
+export const FIND_CATEGORY = "[FIND] Category";
+export const UPDATE_CATEGORY = "[PUT] Category";
+export const REMOVE_CATEGORY = "[REMOVE] Delete Category";
+export const CREATE_CATEGORY = "[UPDATE] Update Category";
+
 // export const API_URL = "http://localhost:4000";
 
 export const userData = JSON.parse(localStorage.getItem("userData")) || {};

@@ -1,4 +1,4 @@
-import { FIND_PRODUCT, GET_PRODUCT, REMOVE_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT } from "../constants";
+import { FIND_CATEGORY, GET_CATEGORY, REMOVE_CATEGORY, CREATE_CATEGORY, UPDATE_CATEGORY } from "../constants";
 import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/api";
 
 //contents:
@@ -8,15 +8,15 @@ import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/
 //updateProduct
 //createProduct
 
-export const getProduct = () => {
+export const getCategory = () => {
   return (dispatch) => {
-    getRequest("/product")
+    getRequest("/categories")
       .then((res) => {
         dispatch({
-          type: GET_PRODUCT,
+          type: GET_CATEGORY,
           payload: res,
         });
-        window.localStorage.setItem("productData", JSON.stringify(res));
+        window.localStorage.setItem("categoryData", JSON.stringify(res));
         console.log(res);
       })
       .catch((err) => {
@@ -25,12 +25,12 @@ export const getProduct = () => {
   };
 };
 
-export const getProductID = (id) => {
+export const getCategoryID = (id) => {
   return (dispatch) => {
-    getRequest(`/product/${id}`)
+    getRequest(`/categories/${id}`)
       .then((res) => {
         dispatch({
-          type: FIND_PRODUCT,
+          type: FIND_CATEGORY,
           payload: res.data.data,
         });
       })
@@ -40,12 +40,12 @@ export const getProductID = (id) => {
   };
 };
 
-export const deleteProduct = (id) => {
+export const deleteCategory = (id) => {
   return (dispatch) => {
-    deleteRequest(`/product/${id}`)
+    deleteRequest(`/categories/${id}`)
       .then((res) => {
         dispatch({
-          type: REMOVE_PRODUCT,
+          type: REMOVE_CATEGORY,
           payload: res.data.data,
         });
       })
@@ -55,12 +55,12 @@ export const deleteProduct = (id) => {
   };
 };
 
-export const updateProduct = (id) => {
+export const updateCategory = (id) => {
   return (dispatch) => {
-    putRequest(`/product/${id}`)
+    putRequest(`/categories/${id}`)
       .then((res) => {
         dispatch({
-          type: UPDATE_PRODUCT,
+          type: UPDATE_CATEGORY,
           payload: res.data.data,
         });
       })
@@ -70,15 +70,15 @@ export const updateProduct = (id) => {
   };
 };
 
-export const createProduct = (data) => {
+export const createCategory = (data) => {
   return (dispatch) => {
-    postRequest("/product/", data)
+    postRequest("/category/", data)
       .then((res) => {
         dispatch({
-          type: CREATE_PRODUCT,
+          type: CREATE_CATEGORY,
           payload: res.data.data,
         });
-        window.localStorage.setItem("productData", JSON.stringify(res.data.data));
+        window.localStorage.setItem("categoryData", JSON.stringify(res.data.data));
       })
       .catch((err) => {
         console.log(err);
