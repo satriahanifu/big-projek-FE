@@ -48,10 +48,11 @@
 /* .tumbnail */
 .tumbnail {
   position: absolute;
-  width: 523px;
+  width: 480px;
   height: 567px;
   left: 77px;
   top: 39px;
+  object-fit: cover;
 }
 
 /* info */

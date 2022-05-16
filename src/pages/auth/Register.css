@@ -1,0 +1,10 @@
+.register-img {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+h3,
+label,
+button {
+  font-family: Montserrat;
+}

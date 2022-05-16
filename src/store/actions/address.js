@@ -1,4 +1,4 @@
-import { FIND_PRODUCT, GET_PRODUCT, REMOVE_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT } from "../constants";
+import { FIND_ADDRESS, CREATE_ADDRESS, UPDATE_ADDRESS, GET_ADDRESS, REMOVE_ADDRESS } from "../constants";
 import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/api";
 
 //contents:
@@ -8,15 +8,15 @@ import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/
 //updateProduct
 //createProduct
 
-export const getProduct = (search = "") => {
+export const getAddress = () => {
   return (dispatch) => {
-    getRequest(`/product?search=${search}`)
+    getRequest("/address")
       .then((res) => {
         dispatch({
-          type: GET_PRODUCT,
+          type: GET_ADDRESS,
           payload: res,
         });
-        // window.localStorage.setItem("productData", JSON.stringify(res));
+        window.localStorage.setItem("addressData", JSON.stringify(res));
         console.log(res);
       })
       .catch((err) => {
@@ -25,27 +25,12 @@ export const getProduct = (search = "") => {
   };
 };
 
-export const getProductID = (id) => {
+export const getAddressID = (id) => {
   return (dispatch) => {
-    getRequest(`/product/${id}`)
+    getRequest(`/address/${id}`)
       .then((res) => {
         dispatch({
-          type: FIND_PRODUCT,
-          payload: res,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
-
-export const deleteProduct = (id) => {
-  return (dispatch) => {
-    deleteRequest(`/product/${id}`)
-      .then((res) => {
-        dispatch({
-          type: REMOVE_PRODUCT,
+          type: FIND_ADDRESS,
           payload: res.data.data,
         });
       })
@@ -55,12 +40,12 @@ export const deleteProduct = (id) => {
   };
 };
 
-export const updateProduct = (id) => {
+export const deleteAddress = (id) => {
   return (dispatch) => {
-    putRequest(`/product/${id}`)
+    deleteRequest(`/address/${id}`)
       .then((res) => {
         dispatch({
-          type: UPDATE_PRODUCT,
+          type: REMOVE_ADDRESS,
           payload: res.data.data,
         });
       })
@@ -70,15 +55,30 @@ export const updateProduct = (id) => {
   };
 };
 
-export const createProduct = (data) => {
+export const updateAddress = (id) => {
   return (dispatch) => {
-    postRequest("/product/", data)
+    putRequest(`/address/${id}`)
       .then((res) => {
         dispatch({
-          type: CREATE_PRODUCT,
+          type: UPDATE_ADDRESS,
           payload: res.data.data,
         });
-        // window.localStorage.setItem("productData", JSON.stringify(res.data.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const createAddress = (data) => {
+  return (dispatch) => {
+    postRequest("/address/", data)
+      .then((res) => {
+        dispatch({
+          type: CREATE_ADDRESS,
+          payload: res.data.data,
+        });
+        window.localStorage.setItem("addressData", JSON.stringify(res.data.data));
       })
       .catch((err) => {
         console.log(err);

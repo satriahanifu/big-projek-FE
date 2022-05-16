@@ -9,9 +9,15 @@ import Admin from "./pages/admin/Admin";
 import Payment from "./pages/admin/Payment";
 import Products from "./pages/admin/Products";
 import Shipping from "./pages/admin/Shipping";
-import Users from "./pages/admin/Users";
+import User from "./pages/admin/User";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+
+// const ProtectedRoute = (routes) => {
+//   return (
+//     <Route {...routes} />
+//   )
+// }
 
 function App() {
   return (
@@ -22,11 +28,13 @@ function App() {
         <Route path="/catalogue" component={Catalogue} />
         <Route path="/cart" component={Cart} />
         {/* <Route path="" component={NotFound} /> */}
-        <Route path="/admin" component={Admin} />
-        <Route path="/payment" component={Payment} />
-        <Route path="/products" component={Products} />
-        <Route path="/shipping" component={Shipping} />
-        <Route path="/users/:id" component={Users} />
+        <Route path="/admin" exact component={Admin} />
+        <Route path="/admin/payment" component={Payment} />
+        <Route path="/admin/payment/add" component={Payment} />
+        <Route path="/admin/payment/edit/:id" component={Payment} />
+        <Route path="/admin/products" component={Products} />
+        <Route path="/admin/shipping" component={Shipping} />
+        <Route path="/admin/user/:id?" component={User} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
       </Switch>

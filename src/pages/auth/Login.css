@@ -1,3 +1,37 @@
-.h3 {
-  font-family: monserrat;
+section {
+  background-color: #9a616d;
+}
+.card {
+  border-radius: 1rem;
+}
+
+.here {
+  color: #ff6219;
+}
+
+img {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.h5 {
+  letter-spacing: 1px;
+}
+
+.p {
+  color: #393f81;
+}
+
+.register {
+  color: #393f81;
+}
+
+Label,
+button {
+  font-family: roboto;
+}
+
+span,
+h5,
+input {
+  font-family: montserrat;
 }

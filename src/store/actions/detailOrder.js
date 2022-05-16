@@ -1,4 +1,4 @@
-import { FIND_PRODUCT, GET_PRODUCT, REMOVE_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT } from "../constants";
+import { FIND_DETAILORDER, CREATE_DETAILORDER, UPDATE_DETAILORDER, GET_DETAILORDER, REMOVE_DETAILORDER } from "../constants";
 import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/api";
 
 //contents:
@@ -8,15 +8,15 @@ import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/
 //updateProduct
 //createProduct
 
-export const getProduct = (search = "") => {
+export const getDetailOrder = () => {
   return (dispatch) => {
-    getRequest(`/product?search=${search}`)
+    getRequest("/detailorder")
       .then((res) => {
         dispatch({
-          type: GET_PRODUCT,
+          type: GET_DETAILORDER,
           payload: res,
         });
-        // window.localStorage.setItem("productData", JSON.stringify(res));
+        // window.localStorage.setItem("addressData", JSON.stringify(res));
         console.log(res);
       })
       .catch((err) => {
@@ -25,27 +25,12 @@ export const getProduct = (search = "") => {
   };
 };
 
-export const getProductID = (id) => {
+export const getDetailOrderID = (id) => {
   return (dispatch) => {
-    getRequest(`/product/${id}`)
+    getRequest(`/detailorder/${id}`)
       .then((res) => {
         dispatch({
-          type: FIND_PRODUCT,
-          payload: res,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
-
-export const deleteProduct = (id) => {
-  return (dispatch) => {
-    deleteRequest(`/product/${id}`)
-      .then((res) => {
-        dispatch({
-          type: REMOVE_PRODUCT,
+          type: FIND_DETAILORDER,
           payload: res.data.data,
         });
       })
@@ -55,12 +40,12 @@ export const deleteProduct = (id) => {
   };
 };
 
-export const updateProduct = (id) => {
+export const deleteDetailOrder = (id) => {
   return (dispatch) => {
-    putRequest(`/product/${id}`)
+    deleteRequest(`/detailorder/${id}`)
       .then((res) => {
         dispatch({
-          type: UPDATE_PRODUCT,
+          type: REMOVE_DETAILORDER,
           payload: res.data.data,
         });
       })
@@ -70,15 +55,30 @@ export const updateProduct = (id) => {
   };
 };
 
-export const createProduct = (data) => {
+export const updateDetailOrder = (id) => {
   return (dispatch) => {
-    postRequest("/product/", data)
+    putRequest(`/detailorder/${id}`)
       .then((res) => {
         dispatch({
-          type: CREATE_PRODUCT,
+          type: UPDATE_DETAILORDER,
           payload: res.data.data,
         });
-        // window.localStorage.setItem("productData", JSON.stringify(res.data.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const createDetailOrder = (data) => {
+  return (dispatch) => {
+    postRequest("/detailorder/", data)
+      .then((res) => {
+        dispatch({
+          type: CREATE_DETAILORDER,
+          payload: res.data.data,
+        });
+        // window.localStorage.setItem("addressData", JSON.stringify(res.data.data));
       })
       .catch((err) => {
         console.log(err);

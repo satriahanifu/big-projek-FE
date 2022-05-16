@@ -1,15 +1,18 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import Topbar from "../../components/Topbar";
+import "../../styles/Admin.css";
 
-function Shipping() {
-  // const dispatch =useDispatch()
-  // const { shipping } = useSelector((state) => state.productReducer);
+import React, { useEffect } from "react";
+import Topbar from "../../components/Topbar";
+import { useDispatch, useSelector } from "react-redux";
+
+function User() {
+  // const dispatch = useDispatch;
+  // const { user } = useSelector((state) => state.userReducer);
 
   return (
     <div>
       <div className="container">
         <Topbar />
+
         <div className=" d-flex justify-content-between">
           <div className="card shadow-sm rounded border-0 col-9">
             <div className="card-body">
@@ -48,11 +51,23 @@ function Shipping() {
             <div className="card shadow-sm rounded border-0  produk-input position-fixed top-8 end-10 ">
               <div className="card-body ">
                 <form>
-                  <h3>Tambah produk</h3>
+                  <h3>Tambah users</h3>
                   <br></br>
                   <div className="form-group">
-                    <label>Nama Shipping</label>
-                    <input className="form-control" placeholder="nama shipping" />
+                    <label>user name</label>
+                    <input className="form-control" placeholder="username" />
+                  </div>
+                  <div className="form-group">
+                    <label>password</label>
+                    <input type="password" className="form-control" placeholder="password" />
+                  </div>
+                  <div className="form-group">
+                    <label>fullname</label>
+                    <input className="form-control" placeholder="fullname" />
+                  </div>
+                  <div className="form-group">
+                    <label>email address</label>
+                    <input type="email" className="form-control" placeholder="email" />
                   </div>
                   <br />
                   <button type="submit" className="btn btn-primary">
@@ -68,4 +83,4 @@ function Shipping() {
   );
 }
 
-export default Shipping;
+export default User;

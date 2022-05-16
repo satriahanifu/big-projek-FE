@@ -12,12 +12,12 @@ import { addToCart } from "../store/actions/cart";
 import { useParams } from "react-router-dom";
 
 export default function Catalogue() {
-  const dispacth = useDispatch();
+  const dispatch = useDispatch();
   const { products } = useSelector((state) => state.productReducer);
   const { category } = useSelector((state) => state.categoryReducer);
   const history = useHistory();
-  const [productList, setProductList] = useState([]);
-  const [categoryList, setCategoryList] = useState([]);
+  // const [productList, setProductList] = useState([]);
+  // const [categoryList, setCategoryList] = useState([]);
   const [search, setSearch] = useState("");
 
   const onSearch = (e) => {
@@ -25,12 +25,12 @@ export default function Catalogue() {
   };
 
   const doSearch = () => {
-    if (search) {
-      const filteredProduct = productList.filter((item) => item.productName.match(new RegExp(search, "gi")));
-      setProductList(filteredProduct);
-    } else {
-      setProductList(products);
-    }
+    // if (search) {
+    //   const filteredProduct = productList.filter((item) => item.productName.match(new RegExp(search, "gi")));
+    //   setProductList(filteredProduct);
+    // } else {
+    //   setProductList(products);
+    // }
   };
 
   const onEnterSearch = (e) => {
@@ -40,23 +40,14 @@ export default function Catalogue() {
   };
 
   useEffect(() => {
-    dispacth(getProduct(), getCategory());
+    dispatch(getProduct());
+    dispatch(getCategory());
   }, []);
-
-  useEffect(() => {
-    setProductList(products);
-    console.log(products);
-  }, [products]);
-
-  useEffect(() => {
-    setCategoryList(category);
-    console.log("category list" + category);
-  }, [category]);
 
   const params = useParams();
 
   const addCart = () => {
-    dispacth(addToCart(params.id));
+    dispatch(addToCart(params.id));
   };
 
   return (
@@ -81,8 +72,8 @@ export default function Catalogue() {
         <div className="col-md-3 leftSide">
           {
             <div className="ul">
-              {categoryList &&
-                categoryList.map((val, key) => {
+              {category &&
+                category.map((val, key) => {
                   return (
                     <div key={key} className="li" onClick={() => history.push(`/categories/${val.id}`)}>
                       {val.name}
@@ -112,8 +103,8 @@ export default function Catalogue() {
         </div>
         <div className="col-md-6">
           <div className="row">
-            {productList &&
-              productList.map((val, key) => {
+            {products &&
+              products.map((val, key) => {
                 return (
                   <div key={key} className="col-md-4 mb-3" onClick={() => history.push(`/shop/${val.id}`)}>
                     <div className="productCard">

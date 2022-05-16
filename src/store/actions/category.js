@@ -16,7 +16,7 @@ export const getCategory = () => {
           type: GET_CATEGORY,
           payload: res,
         });
-        window.localStorage.setItem("categoryData", JSON.stringify(res));
+        // window.localStorage.setItem("categoryData", JSON.stringify(res));
         console.log(res);
       })
       .catch((err) => {
