@@ -1,12 +1,28 @@
 import "../../styles/Admin.css";
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Topbar from "../../components/Topbar";
 import { useDispatch, useSelector } from "react-redux";
+import { getUser, createUser } from "../../store/actions/user";
 
 function User() {
-  // const dispatch = useDispatch;
-  // const { user } = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.userReducer);
+
+  const [userData, setUserData] = useState({
+    username: "",
+    password: "",
+    fullname: "",
+    email: "",
+  });
+
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(createUser(userData));
+  // };
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   return (
     <div>
@@ -17,33 +33,42 @@ function User() {
           <div className="card shadow-sm rounded border-0 col-9">
             <div className="card-body">
               <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
+                <div className="card-body">
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">username</th>
+                        <th scope="col">fullname</th>
+                        <th scope="col">email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {user &&
+                        user.map((val, key) => {
+                          return (
+                            <tr key={key}>
+                              <td>{val.username}</td>
+                              <td>{val.fullname}</td>
+                              <td>{val.email}</td>
+                              <td>
+                                <button type="button" class="btn btn-warning btn-sm">
+                                  Edit
+                                </button>
+
+                                <button type="button" class="btn btn-danger btn-sm">
+                                  Delete
+                                </button>
+
+                                <button type="button" class="btn btn-info btn-sm">
+                                  Update
+                                </button>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                  </table>
+                </div>
               </table>
             </div>
           </div>

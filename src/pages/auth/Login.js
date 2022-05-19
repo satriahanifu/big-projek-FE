@@ -2,48 +2,51 @@ import { useHistory, Link } from "react-router-dom";
 import React, { useState } from "react";
 import "./Login.css";
 import "./Fonts.css";
+import { dispatch } from "react-redux";
+// import { loginUser } from "../../store/actions/auth";
 
 function Login() {
   // const { history } = useRouter()
   const history = useHistory();
-  const [loginData, setLoginData] = useState({
-    username: "",
-    password: "",
-  });
+  // const [loginData, setLoginData] = useState({
+  //   username: "",
+  //   password: "",
+  // });
 
-  const onChangeField = (e) => {
-    setLoginData({
-      ...loginData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const onChangeField = (e) => {
+  //   setLoginData({
+  //     ...loginData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const users = JSON.parse(localStorage.getItem("users"));
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   const users = JSON.parse(localStorage.getItem("users"));
 
-    // jika data users'nya belum ada
-    if (!users || users.length === 0) {
-      alert("Belum login");
-    } else {
-      // cocokan user data di localStorage
-      // dengan data username password di state loginData
-      const findUser = users.find((user) => {
-        return user.username === loginData.username && user.password === loginData.password;
-      });
+  //   // jika data users'nya belum ada
+  //   if (!users || users.length === 0) {
+  //     alert("Belum login");
+  //   } else {
+  //     // cocokan user data di localStorage
+  //     // dengan data username password di state loginData
+  //     const findUser = users.find((user) => {
+  //       return user.username === loginData.username && user.password === loginData.password;
+  //       dispatch(loginData(loginData));
+  //     });
 
-      // kalau tidak cocok
-      // tampilkan alert error
-      if (!findUser) {
-        alert("Username atau password salah!");
-      } else {
-        // kalau cocok redirect ke halaman home
-        // dan simpan flag isLogin pada localStorage
-        localStorage.setItem("isLogin", JSON.stringify(true));
-        history.push("/");
-      }
-    }
-  };
+  //     // kalau tidak cocok
+  //     // tampilkan alert error
+  //     if (!findUser) {
+  //       alert("Username atau password salah!");
+  //     } else {
+  //       // kalau cocok redirect ke halaman home
+  //       // dan simpan flag isLogin pada localStorage
+  //       localStorage.setItem("isLogin", JSON.stringify(true));
+  //       history.push("/");
+  //     }
+  //   }
+  // };
 
   return (
     <section className="vh-100">
@@ -65,13 +68,13 @@ function Login() {
 
                       <h5 className="fw-normal mb-3 pb-3 h5">masuk akun</h5>
 
-                      <div className="form-outline mb-4" onSubmit={onSubmit}>
-                        <input type="email" className="form-control form-control-lg" name="username" value={loginData.username} onChange={onChangeField} />
+                      <div className="form-outline mb-4">
+                        <input type="email" className="form-control form-control-lg" name="username" />
                         <label className="form-label">Email address</label>
                       </div>
 
                       <div className="form-outline mb-4">
-                        <input type="password" className="form-control form-control-lg" name="password" value={loginData.password} onChange={onChangeField} />
+                        <input type="password" className="form-control form-control-lg" name="password" />
                         <label className="form-label">Password</label>
                       </div>
 

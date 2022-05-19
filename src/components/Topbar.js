@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineLogout } from "react-icons/ai";
 
 function Topbar() {
   return (
@@ -30,11 +31,17 @@ function Topbar() {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link to="/admin/users" className="nav-link">
+                <Link to="/admin/user" className="nav-link">
                   Users
                 </Link>
               </li>
             </ul>
+          </div>
+          <div class="d-flex ">
+            <button class="btn btn-outline-success" type="submit">
+              signOut
+              <AiOutlineLogout />
+            </button>
           </div>
         </div>
       </nav>

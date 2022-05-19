@@ -13,7 +13,9 @@
 .mainContainer {
   display: flex;
   margin-top: 10px;
-  overflow: scroll;
+  margin-bottom: 1rem;
+  flex-direction: column;
+  /* overflow: scroll; */
 }
 
 .headerRight .search input,

@@ -38,18 +38,21 @@ function Cart() {
         {carts.length ? (
           carts.map((product, id) => {
             return (
-              <div className="card" key={id}>
-                <div className="col">
-                  <img src={product?.imageUrl} alt="" width="175vw" className="card-img-left"></img>
+              <div className="card mb-2" key={id}>
+                <div className="d-flex justify-content-start align-items-start">
+                  <div className="me-3">
+                    <img src={product?.image ? product.image : "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt="" width="175vw" className="card-img-left"></img>
+                  </div>
+                  <div className="card-body">
+                    <div className="color mb-2">warna : {product.color}</div>
+                    <div className="productName mb-2">nama item :{product.name}</div>
+                    <div className="price mb-2">harga :{product.price}</div>
+                    <div className="mb-2">
+                      Qty :
+                      <input className="price " value={product.qty} />
+                    </div>
+                  </div>
                 </div>
-                <div className="card-body">
-                  <div className="color">warna : {product.color}</div>
-                  <div className="productName">nama item :{product.name}</div>
-                  <div className="price">harga :{product.price}</div>
-                  <div className="tagLine">{product.tagline}</div>
-                  <div className="description">{product.description}</div>
-                </div>
-                <button class="btn btn-primary">check out</button>
               </div>
             );
           })
@@ -57,6 +60,7 @@ function Cart() {
           <h4 className="warn">Cart Masih Kosong</h4>
         )}
       </div>
+      <button class="btn btn-primary">check out</button>
       <Footer />
     </div>
   );

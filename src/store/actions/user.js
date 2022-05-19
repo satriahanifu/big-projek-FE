@@ -1,4 +1,4 @@
-import { FIND_USERS, GET_USERS, REMOVE_USERS, CREATE_USERS, UPDATE_USERS } from "../constants";
+import { FIND_USER, GET_USER, REMOVE_USER, CREATE_USER, UPDATE_USER } from "../constants";
 import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/api";
 
 //contents:
@@ -8,12 +8,12 @@ import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/
 //updateProduct
 //createProduct
 
-export const getUsers = (search = "") => {
+export const getUser = (search = "") => {
   return (dispatch) => {
     getRequest(`/users?search=${search}`)
       .then((res) => {
         dispatch({
-          type: GET_USERS,
+          type: GET_USER,
           payload: res,
         });
         // window.localStorage.setItem("productData", JSON.stringify(res));
@@ -25,12 +25,12 @@ export const getUsers = (search = "") => {
   };
 };
 
-export const getUsersID = (id) => {
+export const getUserID = (id) => {
   return (dispatch) => {
     getRequest(`/users/${id}`)
       .then((res) => {
         dispatch({
-          type: FIND_USERS,
+          type: FIND_USER,
           payload: res,
         });
       })
@@ -40,12 +40,12 @@ export const getUsersID = (id) => {
   };
 };
 
-export const deleteUsers = (id) => {
+export const deleteUser = (id) => {
   return (dispatch) => {
     deleteRequest(`/users/${id}`)
       .then((res) => {
         dispatch({
-          type: REMOVE_USERS,
+          type: REMOVE_USER,
           payload: res.data.data,
         });
       })
@@ -55,12 +55,12 @@ export const deleteUsers = (id) => {
   };
 };
 
-export const updateUsers = (id) => {
+export const updateUser = (id) => {
   return (dispatch) => {
     putRequest(`/users/${id}`)
       .then((res) => {
         dispatch({
-          type: UPDATE_USERS,
+          type: UPDATE_USER,
           payload: res.data.data,
         });
       })
@@ -70,12 +70,12 @@ export const updateUsers = (id) => {
   };
 };
 
-export const createUsers = (data) => {
+export const createUser = (data) => {
   return (dispatch) => {
     postRequest("/users/", data)
       .then((res) => {
         dispatch({
-          type: CREATE_USERS,
+          type: CREATE_USER,
           payload: res.data.data,
         });
         // window.localStorage.setItem("productData", JSON.stringify(res.data.data));

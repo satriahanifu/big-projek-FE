@@ -1,13 +1,6 @@
 import { FIND_PRODUCT, GET_PRODUCT, REMOVE_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT } from "../constants";
 import { getRequest, postRequest, putRequest, deleteRequest } from "../../utils/api";
 
-//contents:
-//getProduct
-//getProductID
-//delteProduct
-//updateProduct
-//createProduct
-
 export const getProduct = (search = "") => {
   return (dispatch) => {
     getRequest(`/product?search=${search}`)
@@ -76,9 +69,13 @@ export const createProduct = (data) => {
       .then((res) => {
         dispatch({
           type: CREATE_PRODUCT,
-          payload: res.data.data,
+          payload: res,
         });
-        // window.localStorage.setItem("productData", JSON.stringify(res.data.data));
+        if (res) {
+          alert("Produk berhasil ditambahkan");
+        } else {
+          alert("Produk GAGAL ditambahkan");
+        }
       })
       .catch((err) => {
         console.log(err);

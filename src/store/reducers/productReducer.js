@@ -1,4 +1,4 @@
-import { ADD_TO_CART, FIND_PRODUCT, GET_PRODUCT } from "../constants";
+import { ADD_TO_CART, FIND_PRODUCT, GET_PRODUCT, CREATE_PRODUCT } from "../constants";
 
 const initialState = {
   products: [],
@@ -30,7 +30,12 @@ const productReducer = (state = initialState, action) => {
         product: findProduct,
         carts: carts,
       };
-
+    case CREATE_PRODUCT:
+      const insertedProduct = [action.payload, ...state.products];
+      return {
+        ...state,
+        products: insertedProduct,
+      };
     default:
       return state;
   }

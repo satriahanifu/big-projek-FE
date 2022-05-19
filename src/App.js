@@ -34,7 +34,7 @@ function App() {
         <Route path="/admin/payment/edit/:id" component={Payment} />
         <Route path="/admin/products" component={Products} />
         <Route path="/admin/shipping" component={Shipping} />
-        <Route path="/admin/user/:id?" component={User} />
+        <Route path="/admin/user" component={User} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
       </Switch>

@@ -2,7 +2,7 @@ export const GET_PRODUCT = "[GET] Product";
 export const FIND_PRODUCT = "[FIND] Product";
 export const UPDATE_PRODUCT = "[PUT] Update Product";
 export const REMOVE_PRODUCT = "[REMOVE] Delete Product";
-export const CREATE_PRODUCT = "[POST] Update Product";
+export const CREATE_PRODUCT = "[POST] Create Product";
 
 export const ADD_TO_CART = "[POST] Add To Cart";
 export const REMOVE_CART = "[REMOVE] Remove Cart";
