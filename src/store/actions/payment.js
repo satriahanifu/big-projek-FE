@@ -16,7 +16,7 @@ export const getPayment = () => {
           type: GET_PAYMENT,
           payload: res,
         });
-        window.localStorage.setItem("paymentData", JSON.stringify(res));
+        // window.localStorage.setItem("paymentData", JSON.stringify(res));
         console.log(res);
       })
       .catch((err) => {
@@ -76,9 +76,9 @@ export const createPayment = (data) => {
       .then((res) => {
         dispatch({
           type: CREATE_PAYMENT,
-          payload: res.data.data,
+          payload: res,
         });
-        window.localStorage.setItem("paymentData", JSON.stringify(res.data.data));
+        // window.localStorage.setItem("paymentData", JSON.stringify(res.data.data));
       })
       .catch((err) => {
         console.log(err);

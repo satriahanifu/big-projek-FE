@@ -9,9 +9,16 @@ function Payment() {
   const { payment } = useSelector((state) => state.paymentReducer);
 
   useEffect(() => {
-    dispatch(getPayment());
     dispatch(createPayment());
   }, []);
+
+  const onInputChange = (e) => {
+    const { name, value } = e.target;
+    setPaymentData((prevState) => ({
+      ...prevState,
+      [bankName]: bankName === "accountNumber" || bankName === "accountname" ? Number(value) : value,
+    }));
+  };
 
   const [paymentData, setPaymentData] = useState({
     bankName: "",
@@ -21,24 +28,7 @@ function Payment() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const payment = JSON.parse(localStorage.getItem("payment"));
-
-    // cocokan user data di localStorage
-    // dengan data username password di state loginData
-    const findPayment = payment.find((payment) => {
-      return payment.accountNumber === paymentData.accountNumber && payment.accountName === paymentData.accountName;
-      alert("Payment sudah ada");
-    });
-
-    // kalau tidak cocok
-    // tampilkan alert error
-    if (!findPayment) {
-      localStorage.setItem("bankName", JSON.stringify(paymentData.bankName));
-      localStorage.setItem("accountNumber", JSON.stringify(paymentData.accountNumber));
-      localStorage.setItem("accountName", JSON.stringify(paymentData.accountName));
-
-      alert("Payment ditambahkan");
-    }
+    dispatch(createPayment(payment));
   };
 
   return (
@@ -93,15 +83,15 @@ function Payment() {
                   <br />
                   <div className="form-group">
                     <label>Nama akun</label>
-                    <input className="form-control" placeholder="masukkan nama" name="accountName" />
+                    <input className="form-control" placeholder="masukkan nama" name="accountName" onChange={onInputChange} />
                   </div>
                   <div className="form-group">
                     <label>No rekening</label>
-                    <input className="form-control" placeholder="masukkan rekening" name="accountNumber" />
+                    <input className="form-control" placeholder="masukkan rekening" name="accountNumber" onChange={onInputChange} />
                   </div>
                   <div className="form-group">
                     <label>Nama bank</label>
-                    <input className="form-control" placeholder="masukkan bank" name="bankName" />
+                    <input className="form-control" placeholder="masukkan bank" name="bankName" onChange={onInputChange} />
                   </div>
                   <br />
                   <button type="submit" className="btn btn-primary">

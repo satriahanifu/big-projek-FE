@@ -1,7 +1,7 @@
 import { GET_PAYMENT, FIND_PAYMENT, UPDATE_PAYMENT, REMOVE_PAYMENT, CREATE_PAYMENT } from "../constants";
 
 const initialState = {
-  payment: {},
+  payment: null,
 };
 
 const paymentReducer = (state = initialState, action) => {
